@@ -1,1 +1,1 @@
-E:\JetBrains\source\others\LocalOJ\LocalOJ\src\prerequisite\target\debug\prerequisite.exe: E:\JetBrains\source\others\LocalOJ\LocalOJ\src\prerequisite\src\main.rs
+/home/nianc/Desktop/MiniOJ/LocalOJ/miniOJ/src/prerequisite/target/debug/prerequisite: /home/nianc/Desktop/MiniOJ/LocalOJ/miniOJ/src/prerequisite/src/main.rs

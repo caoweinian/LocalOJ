@@ -1,3 +1,7 @@
+use rusqlite::{Connection, params};
+
 fn main() {
-    // nothing to do
+    let conn = Connection::open("db.sqlite3").unwrap();
+    conn.execute("create table Go(id integer);", params![]).unwrap();
+    
 }
