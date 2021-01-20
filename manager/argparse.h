@@ -16,16 +16,18 @@ namespace oj
 	private:
 		using Self = cmdarg;
 	public:
-		/* construct a cmdarg using the arguments */
+		/* construct a cmdarg using the arguments. Not responsible for 
+		checking their validity */
 		static Result<Self> from(int argc, const char** argv);
 	
 		/* get command */
 		const std::string& command() const { this->dm_command; }
 
 		/* test if the argument package has some given property */
-		bool has_property(const std::string& p) const
+		bool has_property(char p) const
 		{
-			return this->dm_properties.find(p) != this->dm_properties.end();
+			return any_of(begin(this->dm_properties),end(this->dm_properties),
+			[&](char c){return c==p;});
 		}
 
 		/* test if the argument package has some given keyword */
@@ -54,11 +56,11 @@ namespace oj
 
 	private:
 		cmdarg(std::string command,
-			std::unordered_set<std::string> properties,
+			std::string properties,
 			std::unordered_map<std::string, std::vector<std::string>> kvp);
 	private:
 		std::string dm_command;
-		std::unordered_set<std::string> dm_properties;
+		std::string dm_properties;
 		std::unordered_map<std::string, std::vector<std::string>> dm_kvp;
 	};
 }

@@ -1,3 +1,5 @@
+// report error if something unexpected occurs
+
 #ifndef ERROR_H
 #define ERROR_H
 
@@ -13,6 +15,11 @@ namespace oj
         ARGPARSE_FAILED,
 
     };
+
+    // namespace errmsg_build
+    // {
+
+    // }
 
     void report_and_exit(error_type t);
 }
