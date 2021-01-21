@@ -13,7 +13,7 @@ using namespace std;
 namespace oj
 {
     /* check if the arguments are legal. If not, exit with code error_type::ARGPARSE_FAILED */
-    void check_args(const string& command, const string& properties,
+    bool check_args(const string& command, const string& properties,
         const unordered_map<string, vector<string>>& kvp);
 
     bool starts_with_only_one_hyphen(const string& s);
@@ -30,6 +30,7 @@ namespace oj
 
     Result<cmdarg> cmdarg::from(int argc, const char **argv)
     {
+        #define PARSE_ERROR (Result<cmdarg>::err(error_type::ARGPARSE_FAILED))
         if(argc == 1)
             report_and_exit(error_type::ARGPARSE_FAILED);
         const auto argvv = argv2vs(argc, argv);
@@ -61,9 +62,11 @@ namespace oj
                 }
             }
             else // the error that can be tested earlier should get reported in advance
-                //return Result<cmdarg>::err(error) 
-             //   report_and_exit(error_type::ARGPARSE_FAILED);  
+                return PARSE_ERROR;
         }
+        if(!check_args(command, properties, kvp))
+            return PARSE_ERROR;
+        #undef PARSE_ERROR
         return Result<cmdarg>::ok(cmdarg{
             std::move(command), 
             std::move(properties), 
@@ -71,7 +74,7 @@ namespace oj
         });
     }
 
-    void check_args(const string& command, const string& properties,
+    bool check_args(const string& command, const string& properties,
     const unordered_map<string, vector<string>>& kvp)
     {
         static_assert(false, "oj::check_args not implemented");

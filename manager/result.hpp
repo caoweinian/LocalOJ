@@ -83,7 +83,7 @@ namespace oj
 
 	// type alias
 	template<typename Value>
-	using Result = result<Value, std::string>;
+	using Result = result<Value, error_type>;
 }
 
 #endif

@@ -16,11 +16,6 @@ namespace oj
 
     };
 
-    // namespace errmsg_build
-    // {
-
-    // }
-
     void report_and_exit(error_type t);
 }
 
