@@ -8,7 +8,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
-#include "result.hpp"
+#include "result.h"
 
 namespace oj 
 {
@@ -29,7 +29,7 @@ namespace oj
 		static Result<Self> from(int argc, const char** argv);
 	
 		/* get command */
-		const std::string& command() const { this->dm_command; }
+		const std::string& command() const { return this->dm_command; }
 
 		/* test if the argument package has some given property */
 		bool has_property(char p) const

@@ -79,6 +79,7 @@ namespace oj
 			return this->get_value();
 		f();  // <- make sure this method finally terminates the process
 		report_and_exit(error_type::NOT_EXIT_IN_UNWRAP_OR_REPORT); // The program should never run this statement;
+		std::exit(-1);
 	}
 
 	// type alias

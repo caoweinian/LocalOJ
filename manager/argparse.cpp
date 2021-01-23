@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <type_traits>
 #include "argparse.h"
-#include "result.hpp"
+#include "result.h"
 using namespace std;
 
 

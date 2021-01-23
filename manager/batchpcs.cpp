@@ -27,6 +27,7 @@ namespace oj
     pcs& pcs::then(string cmd)
     {
         this->dm_apkg.push_back(std::move(cmd));
+        return *this;
     }
 
     i32 pcs::run() const
@@ -54,6 +55,7 @@ namespace oj
     task_group& task_group::add(pcs&& process)
     {
         this->dm_group.push_back(std::move(process));
+        return *this;
     }
 
     i32 task_group::run_all() const

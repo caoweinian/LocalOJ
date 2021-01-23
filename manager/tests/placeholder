@@ -1,0 +1,17 @@
+complie = g++ -std=c++17 -O2
+objs = main.o error.o argparse.o batchpcs.o program.o
+target_dir = ../miniOJ
+manage: $(obj)
+	$(complie) main.o error.o argparse.o batchpcs.o program.o -o $(target_dir)/manage
+main.o: main.cpp argparse.o
+	$(complie) -c main.cpp -o main.o
+error.o: error.h error.cpp
+	$(complie) -c error.cpp -o error.o
+argparse.o: argparse.h argparse.cpp error.o
+	$(complie) -c argparse.cpp -o argparse.o
+batchpcs.o: batchpcs.h batchpcs.cpp
+	$(complie) -c batchpcs.cpp -o batchpcs.o
+program.o: program.h program.cpp
+	$(complie) -c program.cpp -o program.o
+clean:
+	rm $(obj)

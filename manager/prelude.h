@@ -7,6 +7,6 @@
 #include "argparse.h"
 #include "batchpcs.h"
 #include "error.h"
-#include "result.hpp"
+#include "result.h"
 
 #endif
