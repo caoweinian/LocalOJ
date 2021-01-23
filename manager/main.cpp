@@ -1,16 +1,14 @@
-#include "result.hpp"
-#include <cstdlib>
+#include "program.h"
 #include <iostream>
-using namespace std;
+#include <cstdlib>
 
-int main() {
-	int some = 1;
-	int* p = &some;
-	auto val = oj::Result<int>::ok(3);
-	int v = val.unwrap_or_report([&]() {
-		cout << &val << endl;
-		exit(3);
-		}
-	);
-	cout << v * 2 << endl;
+int main(int argc, const char **argv)
+{
+	using i32 = oj::i32;
+
+	auto p = oj::program::from(argc, argv);
+	p.unwrap_or_report([&](){
+		oj::report_and_exit(p.get_error());
+	}).run();
+	// return 0;
 }

@@ -7,6 +7,7 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+#include <algorithm>
 #include "result.hpp"
 
 namespace oj 
@@ -16,6 +17,13 @@ namespace oj
 	private:
 		using Self = cmdarg;
 	public:
+		/* the big-five */
+		cmdarg(const cmdarg&) = default;
+		cmdarg(cmdarg&&) = default;
+		cmdarg& operator=(const cmdarg&) = default;
+		cmdarg& operator=(cmdarg&&) = default;
+		~cmdarg() = default;
+
 		/* construct a cmdarg using the arguments. Not responsible for 
 		checking their validity */
 		static Result<Self> from(int argc, const char** argv);

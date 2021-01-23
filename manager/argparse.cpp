@@ -77,7 +77,8 @@ namespace oj
     bool check_args(const string& command, const string& properties,
     const unordered_map<string, vector<string>>& kvp)
     {
-        static_assert(false, "oj::check_args not implemented");
+        return false;
+        // static_assert(false, "oj::check_args not implemented");
     }
 
     bool starts_with_only_one_hyphen(const string& s)
@@ -107,4 +108,5 @@ namespace oj
             ret.push_back(argv[i]);
         return /* std::move( */ ret /* ) */;
     }
+
 }
