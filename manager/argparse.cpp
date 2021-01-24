@@ -77,6 +77,8 @@ namespace oj
     bool check_args(const string& command, const string& properties,
     const unordered_map<string, vector<string>>& kvp)
     {
+        
+
         return false;
         // static_assert(false, "oj::check_args not implemented");
     }
