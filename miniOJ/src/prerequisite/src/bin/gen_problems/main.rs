@@ -1,3 +1,6 @@
+pub mod sample;
+
+
 fn main(){
-    println!("gogogo");
+    
 }
